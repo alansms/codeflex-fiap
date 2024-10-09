@@ -332,23 +332,49 @@ mongo_client.close()
 ---
 ### EX:011 - Verificar Número Par ou Ímpar
 
-[Código fonte](https://github.com/alansms/codeflex-fiap/blob/main/Exercicios-codeflex/Exercicio-11/ex11.py)
+[Código fonte](https://github.com/alansms/codeflex-fiap/blob/64a83e0999862ebcee8e5b2e370549aa96625d32/Exercicios-codeflex/Exercicio-11/ex11.py)
 
 ```python
-Escreva um programa que solicite ao usuário um número inteiro e utilize if e else
-para verificar se o número é par ou ímpar. Exiba a mensagem correspondente.
+def verificar_paridade(numero: int) -> str:
+    """
+    Verifica se um número é par ou ímpar.
 
-# Solicitar ao usuário um número inteiro
-# A função 'input()' recebe a entrada do usuário como uma string, e a função 'int()' converte essa entrada para um número inteiro
-numero = int(input("Digite um número inteiro: "))
+    **Lógica:**
+    - Um número é par se o resto da sua divisão por 2 for 0.
+    - A operação módulo (%) calcula o resto da divisão.
 
-# Verificar se o número é par ou ímpar
-# O operador '%' (módulo) retorna o resto da divisão de 'numero' por 2
-# Se o resto for 0, o número é par; caso contrário, é ímpar
-if numero % 2 == 0:
-    print(f"O número {numero} é par.")  # Exibe uma mensagem indicando que o número é par
-else:
-    print(f"O número {numero} é ímpar.")  # Exibe uma mensagem indicando que o número é ímpar
+    Parâmetros:
+    numero (int): O número inteiro a ser verificado.
+
+    Retorna:
+    str: Mensagem indicando se o número é par ou ímpar.
+    """
+    if numero % 2 == 0:
+        return f"O número {numero} é par."
+    else:
+        return f"O número {numero} é ímpar."
+
+def solicitar_numero() -> int:
+    """
+    Solicita um número inteiro ao usuário.
+
+    **Tratamento de erros:**
+    - Utiliza um loop `while True` para garantir que o usuário digite um número válido.
+    - Emprega um `try-except` para capturar a exceção `ValueError` caso o usuário digite algo que não seja um número inteiro.
+
+    Retorna:
+    int: O número inteiro fornecido pelo usuário.
+    """
+    while True:
+        try:
+            return int(input("Digite um número inteiro: "))
+        except ValueError:
+            print("Valor inválido. Por favor, digite um número inteiro.")
+
+if __name__ == "__main__":
+    numero = solicitar_numero()
+    mensagem = verificar_paridade(numero)
+    print(mensagem)
 ```
 
 ---
@@ -357,29 +383,62 @@ else:
 [Código fonte](https://github.com/alansms/codeflex-fiap/blob/main/Exercicios-codeflex/Exercicio-12/ex12.py)
 
 ```python
-Crie um programa que peça ao usuário três números e use if, elif, e else para
-determinar qual é o maior dos três. Exiba o maior número.
+def solicitar_numeros() -> tuple:
+    """
+    Solicita três números ao usuário e retorna uma tupla com os valores.
 
-# Solicitar ao usuário três números
-# As entradas são convertidas para o tipo float para permitir números decimais
-num1 = float(input("Digite o primeiro número: "))
-num2 = float(input("Digite o segundo número: "))
-num3 = float(input("Digite o terceiro número: "))
+    **Lógica:**
+    - Utiliza um loop `while True` para garantir que o usuário digite apenas números.
+    - Emprega um `try-except` para tratar possíveis erros de conversão para float.
+    - Retorna os três números em uma tupla.
 
-# Determinar qual é o maior dos três números
-# Verifica se o primeiro número é maior ou igual aos outros dois
-if num1 >= num2 and num1 >= num3:
-    maior = num1  # Se for, atribui o valor de 'num1' à variável 'maior'
-# Se a primeira condição não for verdadeira, verifica se o segundo número é maior ou igual aos outros dois
-elif num2 >= num1 and num2 >= num3:
-    maior = num2  # Se for, atribui o valor de 'num2' à variável 'maior'
-# Caso as duas condições anteriores não sejam verdadeiras, o terceiro número é o maior
-else:
-    maior = num3  # Atribui o valor de 'num3' à variável 'maior'
+    **Observação:** Tuplas são imutáveis, ou seja, seus valores não podem ser alterados após a criação.
 
-# Exibir o maior número
-# Exibe o valor do maior número identificado
-print(f"O maior número é: {maior}")
+    Retorna:
+    tuple: Uma tupla contendo três números fornecidos pelo usuário.
+    """
+    while True:
+        try:
+            num1 = float(input("Digite o primeiro número: "))
+            num2 = float(input("Digite o segundo número: "))
+            num3 = float(input("Digite o terceiro número: "))
+            return num1, num2, num3
+        except ValueError:
+            print("Entrada inválida. Por favor, digite valores numéricos.")
+
+def encontrar_maior(num1: float, num2: float, num3: float) -> float:
+    """
+    Determina qual é o maior dos três números fornecidos.
+
+    **Lógica:**
+    - Compara os números dois a dois utilizando `if` e `elif`.
+    - Retorna o maior número encontrado.
+
+    Parâmetros:
+    num1 (float): O primeiro número.
+    num2 (float): O segundo número.
+    num3 (float): O terceiro número.
+
+    Retorna:
+    float: O maior número.
+    """
+    if num1 >= num2 and num1 >= num3:
+        return num1
+    elif num2 >= num1 and num2 >= num3:
+        return num2
+    else:
+        return num3
+
+if __name__ == "__main__":
+    # Solicita os números ao usuário e armazena em uma tupla
+    numeros = solicitar_numeros()
+    num1, num2, num3 = numeros  # Desempacota a tupla em variáveis individuais
+
+    # Encontra o maior número e armazena na variável 'maior'
+    maior = encontrar_maior(num1, num2, num3)
+
+    # Exibe o resultado
+    print(f"O maior número é: {maior}")
 ```
 
 ---
@@ -388,34 +447,58 @@ print(f"O maior número é: {maior}")
 [Código fonte](https://github.com/alansms/codeflex-fiap/blob/main/Exercicios-codeflex/Exercicio-13/ex13.py)
 
 ```python
-Escreva um programa que peça ao usuário sua idade e, utilizando if, elif, e else,
-classifique a pessoa nas seguintes faixas etárias:
-* Menor de 12 anos: "Criança"
-* Entre 12 e 17 anos: "Adolescente"
-* Entre 18 e 64 anos: "Adulto"
-* 65 anos ou mais: "Idoso"
+def solicitar_idade() -> int:
+    """
+    Solicita a idade do usuário e valida a entrada.
 
-# Solicitar ao usuário sua idade
-# A função 'input()' recebe a entrada do usuário como uma string, e a função 'int()' converte essa entrada para um número inteiro
-idade = int(input("Digite sua idade: "))
+    **Lógica:**
+    - Utiliza um loop `while True` para garantir que a idade seja um número inteiro positivo.
+    - Emprega um `try-except` para tratar possíveis erros de conversão para inteiro.
 
-# Classificar a pessoa na faixa etária correspondente
-# Verifica se a idade é menor que 12, classificando como "Criança"
-if idade < 12:
-    classificacao = "Criança"
-# Verifica se a idade está entre 12 e 17 (inclusive), classificando como "Adolescente"
-elif 12 <= idade <= 17:
-    classificacao = "Adolescente"
-# Verifica se a idade está entre 18 e 64 (inclusive), classificando como "Adulto"
-elif 18 <= idade <= 64:
-    classificacao = "Adulto"
-# Se a idade for maior que 64, classifica como "Idoso"
-else:
-    classificacao = "Idoso"
+    Retorna:
+    int: Idade válida fornecida pelo usuário.
+    """
+    while True:
+        try:
+            idade = int(input("Digite sua idade: "))
+            if idade < 0:
+                print("A idade não pode ser negativa. Tente novamente.")
+            else:
+                return idade
+        except ValueError:
+            print("Entrada inválida. Por favor, digite um número inteiro.")
 
-# Exibir a classificação etária
-# Exibe a faixa etária correspondente à idade informada
-print(f"Você é classificado como: {classificacao}")
+def classificar_idade(idade: int) -> str:
+    """
+    Classifica a pessoa em uma faixa etária com base na idade.
+
+    **Lógica:**
+    - Utiliza `if` e `elif` para definir as faixas etárias de forma clara.
+
+    Parâmetros:
+    idade (int): A idade da pessoa.
+
+    Retorna:
+    str: A classificação etária ("Criança", "Adolescente", "Adulto", "Idoso").
+    """
+    if idade < 12:
+        return "Criança"
+    elif 12 <= idade <= 17:
+        return "Adolescente"
+    elif 18 <= idade <= 64:
+        return "Adulto"
+    else:
+        return "Idoso"
+
+if __name__ == "__main__":
+    # Solicita a idade do usuário e armazena em uma variável
+    idade = solicitar_idade()
+
+    # Classifica a idade e armazena o resultado
+    classificacao = classificar_idade(idade)
+
+    # Exibe a classificação etária
+    print(f"Você é classificado como: {classificacao}")
 ```
 
 ---
@@ -424,38 +507,61 @@ print(f"Você é classificado como: {classificacao}")
 [Código fonte](https://github.com/alansms/codeflex-fiap/blob/main/Exercicios-codeflex/Exercicio-14/ex14.py)
 
 ```python
-Crie um programa que solicite ao usuário uma nota de 0 a 100 e utilize if, elif, e
-else para imprimir a classificação correspondente:
-* Nota >= 90: "A"
-* Nota >= 80: "B"
-* Nota >= 70: "C"
-* Nota >= 60: "D"
-* Nota < 60: "F"
+def solicitar_nota() -> float:
+    """
+    Solicita ao usuário uma nota entre 0 e 100 e valida a entrada.
 
-# Solicitar ao usuário uma nota de 0 a 100
-# A função 'input()' recebe a nota como uma string, e a função 'float()' converte para número decimal (float)
-nota = float(input("Digite uma nota de 0 a 100: "))
+    **Lógica:**
+    - Utiliza um loop `while True` para garantir que a nota seja válida.
+    - Emprega um `try-except` para tratar possíveis erros de conversão para float.
+    - Verifica se a nota está dentro do intervalo de 0 a 100.
 
-# Classificar a nota de acordo com a escala
-# Verifica se a nota é maior ou igual a 90 e atribui a classificação "A"
-if nota >= 90:
-    classificacao = "A"
-# Verifica se a nota é maior ou igual a 80 e menor que 90, atribui a classificação "B"
-elif nota >= 80:
-    classificacao = "B"
-# Verifica se a nota é maior ou igual a 70 e menor que 80, atribui a classificação "C"
-elif nota >= 70:
-    classificacao = "C"
-# Verifica se a nota é maior ou igual a 60 e menor que 70, atribui a classificação "D"
-elif nota >= 60:
-    classificacao = "D"
-# Se a nota for menor que 60, atribui a classificação "F"
-else:
-    classificacao = "F"
+    Retorna:
+    float: Nota válida fornecida pelo usuário.
+    """
+    while True:
+        try:
+            nota = float(input("Digite uma nota de 0 a 100: "))
+            if 0 <= nota <= 100:
+                return nota
+            else:
+                print("A nota deve estar entre 0 e 100. Tente novamente.")
+        except ValueError:
+            print("Entrada inválida. Por favor, digite um número válido.")
 
-# Exibir a classificação correspondente
-# Exibe a classificação da nota com base na escala definida
-print(f"A classificação da nota é: {classificacao}")
+def classificar_nota(nota: float) -> str:
+    """
+    Classifica a nota de acordo com a escala de A a F.
+
+    **Lógica:**
+    - Utiliza `if` e `elif` para definir as faixas de notas e suas respectivas classificações.
+
+    Parâmetros:
+    nota (float): A nota a ser classificada.
+
+    Retorna:
+    str: A classificação da nota (A, B, C, D, F).
+    """
+    if nota >= 90:
+        return "A"
+    elif nota >= 80:
+        return "B"
+    elif nota >= 70:
+        return "C"
+    elif nota >= 60:
+        return "D"
+    else:
+        return "F"
+
+if __name__ == "__main__":
+    # Solicita a nota do usuário e armazena em uma variável
+    nota = solicitar_nota()
+
+    # Classifica a nota e armazena o resultado
+    classificacao = classificar_nota(nota)
+
+    # Exibe a classificação correspondente
+    print(f"A classificação da nota é: {classificacao}")
 ```
 
 ---
@@ -464,49 +570,84 @@ print(f"A classificação da nota é: {classificacao}")
 [Código fonte](https://github.com/alansms/codeflex-fiap/blob/main/Exercicios-codeflex/Exercicio-15/ex15.py)
 
 ```python
-Escreva um programa que solicite ao usuário dois números e uma operação
-matemática (soma, subtração, multiplicação ou divisão). Use if, elif, e else para
-realizar a operação correspondente e exibir o resultado.
+def solicitar_numero(prompt):
+    """
+    Solicita um número ao usuário e valida a entrada.
 
-# Solicitar ao usuário dois números
-# O usuário digita dois números que são convertidos para o tipo float (permitindo números decimais)
-numero1 = float(input("Digite o primeiro número: "))
-numero2 = float(input("Digite o segundo número: "))
+    **Lógica:**
+    - Utiliza um loop `while True` para garantir que o usuário digite um número válido.
+    - Emprega um `try-except` para tratar possíveis erros de conversão para float.
+    - Retorna o número convertido para float.
 
-# Solicitar ao usuário a operação matemática desejada
-# O usuário insere um símbolo correspondente à operação: +, -, *, ou /
-operacao = input("Digite a operação desejada (+, -, *, /): ")
+    Args:
+        prompt (str): Mensagem a ser exibida para o usuário.
 
-# Realizar a operação com base na entrada do usuário
-# Verifica qual operação foi selecionada e realiza o cálculo correspondente
+    Returns:
+        float: Número inserido pelo usuário.
+    """
+    while True:
+        try:
+            return float(input(prompt))
+        except ValueError:
+            print("Entrada inválida. Por favor, digite um número válido.")
 
-if operacao == '+':
-    # Se a operação for soma, soma os dois números
-    resultado = numero1 + numero2
-    print(f"O resultado da soma é: {resultado}")
-    
-elif operacao == '-':
-    # Se a operação for subtração, subtrai o segundo número do primeiro
-    resultado = numero1 - numero2
-    print(f"O resultado da subtração é: {resultado}")
-    
-elif operacao == '*':
-    # Se a operação for multiplicação, multiplica os dois números
-    resultado = numero1 * numero2
-    print(f"O resultado da multiplicação é: {resultado}")
-    
-elif operacao == '/':
-    # Se a operação for divisão, verifica primeiro se o divisor não é zero
-    if numero2 != 0:
-        resultado = numero1 / numero2  # Realiza a divisão
-        print(f"O resultado da divisão é: {resultado}")
-    else:
-        # Exibe uma mensagem de erro se o divisor for zero, pois a divisão por zero não é permitida
-        print("Erro: Divisão por zero não é permitida.")
-        
-else:
-    # Caso o usuário tenha inserido um símbolo de operação inválido, exibe uma mensagem de erro
-    print("Operação inválida. Por favor, escolha +, -, * ou /.")
+def solicitar_operacao():
+    """
+    Solicita a operação matemática desejada pelo usuário.
+
+    **Lógica:**
+    - Utiliza um loop `while True` para garantir que o usuário digite uma operação válida.
+    - Verifica se a operação está entre as opções permitidas (+, -, *, /).
+
+    Returns:
+        str: Operação escolhida pelo usuário.
+    """
+    while True:
+        operacao = input("Digite a operação desejada (+, -, *, /): ")
+        if operacao in ['+', '-', '*', '/']:
+            return operacao
+        else:
+            print("Operação inválida. Por favor, escolha +, -, * ou /.")
+
+def calculadora(numero1, numero2, operacao):
+    """
+    Realiza a operação matemática entre dois números.
+
+    Args:
+        numero1 (float): Primeiro número.
+        numero2 (float): Segundo número.
+        operacao (str): Operação matemática a ser realizada.
+
+    Returns:
+        float ou str: Resultado da operação ou mensagem de erro em caso de divisão por zero.
+    """
+    if operacao == '+':
+        return numero1 + numero2
+    elif operacao == '-':
+        return numero1 - numero2
+    elif operacao == '*':
+        return numero1 * numero2
+    elif operacao == '/':
+        if numero2 != 0:
+            return numero1 / numero2
+        else:
+            return "Erro: Divisão por zero não é permitida."
+
+def main():
+    """
+    Função principal do programa.
+
+    Solicita os números e a operação ao usuário, realiza o cálculo e exibe o resultado.
+    """
+    numero1 = solicitar_numero("Digite o primeiro número: ")
+    numero2 = solicitar_numero("Digite o segundo número: ")
+    operacao = solicitar_operacao()
+
+    resultado = calculadora(numero1, numero2, operacao)
+    print(f"O resultado é: {resultado}")
+
+if __name__ == "__main__":
+    main()
 ```
 
 ---
