@@ -1,25 +1,38 @@
-# Solicitar ao usuário dois números
-numero1 = float(input("Digite o primeiro número: "))
-numero2 = float(input("Digite o segundo número: "))
+def solicitar_numero(prompt):
+    while True:
+        try:
+            return float(input(prompt))
+        except ValueError:
+            print("Entrada inválida. Por favor, digite um número válido.")
 
-# Solicitar ao usuário a operação matemática
-operacao = input("Digite a operação desejada (+, -, *, /): ")
+def solicitar_operacao():
+    while True:
+        operacao = input("Digite a operação desejada (+, -, *, /): ")
+        if operacao in ['+', '-', '*', '/']:
+            return operacao
+        else:
+            print("Operação inválida. Por favor, escolha +, -, * ou /.")
 
-# Realizar a operação com base na entrada do usuário
-if operacao == '+':
-    resultado = numero1 + numero2
-    print(f"O resultado da soma é: {resultado}")
-elif operacao == '-':
-    resultado = numero1 - numero2
-    print(f"O resultado da subtração é: {resultado}")
-elif operacao == '*':
-    resultado = numero1 * numero2
-    print(f"O resultado da multiplicação é: {resultado}")
-elif operacao == '/':
-    if numero2 != 0:
-        resultado = numero1 / numero2
-        print(f"O resultado da divisão é: {resultado}")
-    else:
-        print("Erro: Divisão por zero não é permitida.")
-else:
-    print("Operação inválida. Por favor, escolha +, -, * ou /.")
+def calculadora(numero1, numero2, operacao):
+    if operacao == '+':
+        return numero1 + numero2
+    elif operacao == '-':
+        return numero1 - numero2
+    elif operacao == '*':
+        return numero1 * numero2
+    elif operacao == '/':
+        if numero2 != 0:
+            return numero1 / numero2
+        else:
+            return "Erro: Divisão por zero não é permitida."
+
+def main():
+    numero1 = solicitar_numero("Digite o primeiro número: ")
+    numero2 = solicitar_numero("Digite o segundo número: ")
+    operacao = solicitar_operacao()
+    
+    resultado = calculadora(numero1, numero2, operacao)
+    print(f"O resultado é: {resultado}")
+
+if __name__ == "__main__":
+    main()
