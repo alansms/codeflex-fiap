@@ -567,7 +567,7 @@ if __name__ == "__main__":
 ---
 ### EX:015 - Calculadora Simples
 
-[Código fonte](INSERIR LINK)
+[Código fonte](https://github.com/alansms/codeflex-fiap/blob/main/Exercicios-codeflex/Exercicio-15/ex15.py)
 
 ```python
 def solicitar_numero(prompt):
