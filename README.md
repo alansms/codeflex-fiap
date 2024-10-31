@@ -154,7 +154,7 @@ print("Arquivo JSON 'alunos.json' criado com sucesso!")
 ---
 ### EX:006 - Atualização de Dados em CSV
 
-[Código fonte](https://github.com/alansms/codeflex-fiap/blob/main/Exercicios-codeflex/Exercicio-6/ex6.py)
+[Código fonte](https://github.com/alansms/codeflex-fiap/blob/main/Exercicios-codeflex/Exercicio-6/ex06.py)
 
 [pessoas.csv](https://github.com/alansms/codeflex-fiap/blob/main/Exercicios-codeflex/Exercicio-6/pessoas%20(1).csv)
 
@@ -207,7 +207,7 @@ if __name​⬤
 ---
 ### EX:007 - Conectar ao MongoDB
 
-[Código fonte](https://github.com/alansms/codeflex-fiap/blob/main/Exercicios-codeflex/Exercicio-7/ex7.py)
+[Código fonte](https://github.com/alansms/codeflex-fiap/blob/main/Exercicios-codeflex/Exercicio-7/Ex07.py)
 
 ```python
 Escreva um programa em Python que se conecte a um banco de dados MongoDB
@@ -235,7 +235,7 @@ cliente.close()
 ---
 ### EX:008 - Consulta de Documentos no MongoDB
 
-[Código fonte](https://github.com/alansms/codeflex-fiap/blob/main/Exercicios-codeflex/Exercicio-8/ex8.py)
+[Código fonte](https://github.com/alansms/codeflex-fiap/blob/main/Exercicios-codeflex/Exercicio-8/ex08.py)
 
 ```python
 Escreva um programa que consulte todos os documentos da coleção "alunos" no
@@ -257,7 +257,7 @@ else:
 ---
 ### EX:009 - Exclusão de Documento no MongoDB
 
-[Código fonte](https://github.com/alansms/codeflex-fiap/blob/main/Exercicios-codeflex/Exercicio-9/ex9.py)
+[Código fonte](https://github.com/alansms/codeflex-fiap/blob/main/Exercicios-codeflex/Exercicio-9/ex09.py)
 
 ```python
 Escreva um programa que remova um documento da coleção "alunos" no
@@ -332,7 +332,7 @@ mongo_client.close()
 ---
 ### EX:011 - Verificar Número Par ou Ímpar
 
-[Código fonte](https://github.com/alansms/codeflex-fiap/blob/64a83e0999862ebcee8e5b2e370549aa96625d32/Exercicios-codeflex/Exercicio-11/ex11.py)
+[Código fonte](https://github.com/alansms/codeflex-fiap/blob/main/Exercicios-codeflex/Exercicio-11/ex11.py)
 
 ```python
 def verificar_paridade(numero: int) -> str:
@@ -567,7 +567,7 @@ if __name__ == "__main__":
 ---
 ### EX:015 - Calculadora Simples
 
-[Código fonte](https://github.com/alansms/codeflex-fiap/blob/main/Exercicios-codeflex/Exercicio-15/ex15.py)
+[Código fonte](INSERIR LINK)
 
 ```python
 def solicitar_numero(prompt):
@@ -653,7 +653,7 @@ if __name__ == "__main__":
 ---
 ### EX:016 - Função para Conversão de Temperatura
 
-[Código fonte](https://github.com/alansms/codeflex-fiap/blob/main/Exercicios-codeflex/Exercicio-16/ex16.py)
+[Código fonte](https://github.com/alansms/codeflex-fiap/blob/main/Exercicios-codeflex/Exerci%CC%81cio-16/EX%3A16.py)
 
 ```python
 Escreva uma função chamada celsius_para_fahrenheit que receba uma
@@ -679,7 +679,7 @@ print(f"{temperatura_celsius} graus Celsius é igual a {temperatura_fahrenheit} 
 ---
 ### EX:017 - Função para Calcular Média
 
-[Código fonte](https://github.com/alansms/codeflex-fiap/blob/main/Exercicios-codeflex/Exercicio-17/ex17.py)
+[Código fonte](https://github.com/alansms/codeflex-fiap/blob/main/Exercicios-codeflex/Exerci%CC%81cio-17/EX%3A17.py)
 
 ```python
 Crie uma função chamada calcular_media que receba uma lista de números
@@ -713,7 +713,7 @@ print(f"Média de lista4 (vazia): {calcular_media(lista4)}")  # Resultado: 0, po
 ---
 ### EX:018 - Função para Contar Vogais
 
-[Código fonte](https://github.com/alansms/codeflex-fiap/blob/main/Exercicios-codeflex/Exercicio-18/ex18.py)
+[Código fonte](https://github.com/alansms/codeflex-fiap/blob/main/Exercicios-codeflex/Exerci%CC%81cio-18/EX%3A18.py)
 
 ```python
 Implemente uma função chamada contar_vogais que receba uma string como
@@ -745,7 +745,7 @@ print(f"Quantidade de vogais em teste4: {contar_vogais(teste4)}")  # Resultado e
 ---
 ### EX:019 - Função para Encontrar o Máximo em uma Lista
 
-[Código fonte](https://github.com/alansms/codeflex-fiap/blob/main/Exercicios-codeflex/Exercicio-19/ex19.py)
+[Código fonte](https://github.com/alansms/codeflex-fiap/blob/main/Exercicios-codeflex/Exerci%CC%81cio-19/EX%3A19.py)
 
 ```python
 Implemente uma função chamada encontrar_maximo que receba uma lista de
@@ -778,7 +778,7 @@ print(f"Maior número em lista4 (vazia): {encontrar_maximo(lista4)}")  # Resulta
 ---
 ### EX:020 - Função para Converter Temperatura
 
-[Código fonte](https://github.com/alansms/codeflex-fiap/blob/main/Exercicios-codeflex/Exercicio-20/ex20.py)
+[Código fonte](https://github.com/alansms/codeflex-fiap/blob/main/Exercicios-codeflex/Exerci%CC%81cio-20/EX%3A20.py)
 
 ```python
 Crie uma função chamada converter_temperatura que receba um valor de
